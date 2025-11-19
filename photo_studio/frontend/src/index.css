@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+    --primary-color: #1b1c20;
+    --secondary-color: #f90348;
+    --background-color: #e0e5e7;
+    --text-color: #333;
+    /* --secondary-color: #f5c7d4; */
+
+}
+
+.processing{
+  width: auto !important;
+  background-color: rgb(83, 188, 153) !important;
+}
+.editing{
+  width: auto !important;
+  background-color: rgb(24, 107, 124) !important;
+}
+.awaiting_approval{
+  width: auto !important;
+  background-color: rgb(119, 15, 171) !important;
+}
+.reediting{
+  width: auto !important;
+  background-color: rgb(16, 6, 97) !important;
+}
+.approved{
+  width: auto !important;
+  background-color: rgb(200, 239, 27) !important;
+}
+.in_production{
+  width: auto !important;
+  background-color: rgb(194, 48, 148) !important;
+}
+.ready_for_delivery{
+  width: auto !important;
+  background-color: rgb(226, 220, 49) !important;
+}
+.delivered{
+  width: auto !important;
+  background-color: rgb(30, 200, 47) !important;
+}
+.cancelled{
+  width: auto !important;
+  background-color: rgb(225, 37, 37) !important;
+}
+
+
+.status-tag-processing{
+  width: auto !important;
+  color: rgb(83, 188, 153) !important;
+}
+.status-tag-editing{
+  width: auto !important;
+  color: rgb(24, 107, 124) !important;
+}
+.status-tag-awaiting_approval{
+  width: auto !important;
+  color: rgb(119, 15, 171) !important;
+}
+.status-tag-reediting{
+  width: auto !important;
+  color: rgb(16, 6, 97) !important;
+}
+.status-tag-approved{
+  width: auto !important;
+  color: rgb(200, 239, 27) !important;
+}
+.status-tag-in_production{
+  width: auto !important;
+  color: rgb(194, 48, 148) !important;
+}
+.status-tag-ready_for_delivery{
+  width: auto !important;
+  color: rgb(226, 220, 49) !important;
+}
+.status-tag-delivered{
+  width: auto !important;
+  color: rgb(30, 200, 47) !important;
+}
+.status-tag-cancelled{
+  width: auto !important;
+  color: rgb(225, 37, 37) !important;
+}
+
+.payment-status-tag-processing{
+  width: auto !important;
+  color: rgb(188, 83, 125) !important;
+}
+
+.payment-status-tag-complete{
+  width: auto !important;
+  color: rgb(1, 255, 145) !important;
+}
+
+button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }

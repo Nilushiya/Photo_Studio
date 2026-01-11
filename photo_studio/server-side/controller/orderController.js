@@ -96,7 +96,7 @@ const addEditedPhotos = async (req, res) => {
 
     await axios
       .patch(
-        `http://localhost:${PORT}/api/orders/change-status/${orderDetailsId}`,
+        `photostudio-production-c059.up.railway.app/api/orders/change-status/${orderDetailsId}`,
         reqBody,
         {
           headers: {
@@ -141,7 +141,7 @@ const getOrdersByClientId = async (req, res) => {
     // console.log("get :", getOrderDetails)
     const serviceDetails = getOrderDetails.map(async (item) => {
       const fetchServiceDetails = await axios.get(
-        `http://localhost:${PORT}/api/services/fetch-services/${item.serviceCategoryId}/${item.serviceId}`
+        `photostudio-production-c059.up.railway.app/api/services/fetch-services/${item.serviceCategoryId}/${item.serviceId}`
       );
       return {
         ...item,
@@ -168,7 +168,7 @@ const fetchAllOrderDetails = async (req, res) => {
     const getAllOrderDetails = await orderModel.fetchAllOrderDetails();
     const serviceDetails = getAllOrderDetails.map(async (item) => {
       const fetchAllServiceDetails = await axios.get(
-        `http://localhost:${PORT}/api/services/fetch-services/${item.serviceCategoryId}/${item.serviceId}`
+        `photostudio-production-c059.up.railway.app/api/services/fetch-services/${item.serviceCategoryId}/${item.serviceId}`
       );
       return {
         ...item,

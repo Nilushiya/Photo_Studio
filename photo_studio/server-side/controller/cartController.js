@@ -36,7 +36,7 @@ const getFromCart = async(req, res) => {
         }
 
         const cartDataWithService = cartDetails.map(async (item, index) => {
-            const fetchServiceDetails = await axios.get(`http://localhost:${PORT}/api/services/fetch-services/${item.serviceCategoryId}/${item.serviceId}`);
+            const fetchServiceDetails = await axios.get(`photostudio-production-c059.up.railway.app/api/services/fetch-services/${item.serviceCategoryId}/${item.serviceId}`);
             // console.log(`${index}`,fetchServiceDetails.data)
             return{
                 ...item,

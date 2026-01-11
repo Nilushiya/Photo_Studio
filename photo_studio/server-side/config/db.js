@@ -10,7 +10,7 @@ const env = require('dotenv').config();
 // })
 
 const urlDB = `mysql://root:jIUakmzzYiEXZSflJfQoawmeyoVoqMrF@mysql.railway.internal:3306/railway`
-const db = mysql.createConnection(urlDB);
+const db = mysql.createConnection(urlDB, { multipleStatements: true });
 
 db.connect((err) => {
     if(err){

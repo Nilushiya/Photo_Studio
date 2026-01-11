@@ -1,25 +1,21 @@
-const fs = require("fs");
-const mysql = require("mysql2/promise");
-require("dotenv").config();
+const fs = require('fs');
+const path = require('path');
 
-(async () => {
-  try {
-    const connection = await mysql.createConnection({
-      host: "mysql.railway.internal",
-      user: "root",
-      password: process.env.MYSQLPASSWORD,
-      database: "railway",
-      port: 3306
-    });
+const sql = fs.readFileSync(path.join(__dirname, 'import.sql'), 'utf8');
 
-    const sql = fs.readFileSync("import.sql", "utf8");
-
-    await connection.query(sql);
-
-    console.log("Database imported successfully");
-    process.exit(0);
-  } catch (err) {
-    console.error("Import failed:", err);
-    process.exit(1);
+db.connect(err => {
+  if (err) {
+    console.error('DB connection error:', err);
+    return;
   }
-})();
+  console.log('Connected to DB');
+
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error('Import failed:', err);
+      return;
+    }
+    console.log('Database imported successfully!');
+    db.end();
+  });
+});

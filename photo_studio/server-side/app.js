@@ -39,6 +39,6 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 
 
-app.listen(PORT, () => {
+app.listen( () => {
     console.log(`Server running on photostudio-production-c059.up.railway.app`);
 });

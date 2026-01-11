@@ -1,23 +1,22 @@
-const mysql = require('mysql2')
-const env = require('dotenv').config();
+const mysql = require('mysql2');
+require('dotenv').config();
 
-
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: process.env.DB_PASSWORD,
-//     database: 'photo_studio'
-// })
-
-const urlDB = `mysql://root:jIUakmzzYiEXZSflJfQoawmeyoVoqMrF@mysql.railway.internal:3306/railway`
-const db = mysql.createConnection(urlDB, { multipleStatements: true });
+// Option: Using .env variables
+const db = mysql.createConnection({
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  port: Number(process.env.MYSQLPORT),
+  multipleStatements: true
+});
 
 db.connect((err) => {
     if(err){
-        console.err('Database connection faild.', err.stack)
-        return
+        console.error('Database connection failed.', err.stack); // corrected
+        return;
     }
-    console.log('Connected to mySQL database.')
-})
+    console.log('Connected to MySQL database.');
+});
 
-module.exports = db
+module.exports = db;

@@ -11,6 +11,7 @@ export const signupService = async (formData) => {
         throw err
     }
 }
+
 export const signinService = async (mail, password) => {
     try{
         const requestData = {

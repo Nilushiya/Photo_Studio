@@ -16,7 +16,11 @@ const app = express()
 const PORT = process.env.PORT
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: 'https://nphoto-studio.netlify.app',       // or your frontend URL: 'https://nphoto-studio.netlify.app'
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization']
+}));
 
 app.use('/api/client', clientRoutes)
 app.use('/api/services', serviceRoutes)

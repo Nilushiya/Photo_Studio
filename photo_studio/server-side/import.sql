@@ -1,13 +1,11 @@
-create database if not exists photo_studio;
-use photo_studio;
 
-create table if not exists role(
+create role(
 	id int auto_increment primary key,
 	role varchar(20) not null,
 	created_at datetime default current_timestamp
 );
 
-create table if not exists client (
+create client (
 	id int auto_increment primary key,
     username varchar(255) not null unique,
     mail varchar(255) not null unique,
@@ -20,7 +18,7 @@ create table if not exists client (
     is_active boolean default true
 );
 
-create table if not exists inquiries (
+create inquiries (
 	id int auto_increment primary key,
     user_name varchar(255),
     mail varchar(255),
@@ -28,7 +26,7 @@ create table if not exists inquiries (
     created_at datetime default current_timestamp
 );
 
-create table if not exists admin (
+create admin (
 	id int auto_increment primary key,
     admin_name varchar(255) not null unique,
     mail varchar(255) not null unique,
@@ -41,13 +39,13 @@ create table if not exists admin (
     foreign key (role_id) references role(id)
 );
 
-create table if not exists service_category(
+create service_category(
 	id int auto_increment primary key,
     category_name varchar(255) not null,
 	created_at datetime default current_timestamp
 );
 
-create table if not exists sample_photos(
+create sample_photos(
 	id int auto_increment primary key,
 	file_path varchar(255) not null,
     service_category_id int not null,
@@ -56,7 +54,7 @@ create table if not exists sample_photos(
 	created_at datetime default current_timestamp
 );
 
-create table if not exists photoshoot(
+create photoshoot(
 	id int auto_increment primary key,
     photoshoot_name varchar(255) not null unique,
     price varchar(255) not null,
@@ -67,7 +65,7 @@ create table if not exists photoshoot(
     foreign key (service_category_id) references service_category(id)
 );
 
-create table if not exists frames(
+create frames(
 	id int auto_increment primary key,
 	material_name varchar(255) not null unique,
     size varchar(255) not null,
@@ -80,7 +78,7 @@ create table if not exists frames(
 );
 
 
-create table if not exists printings(
+create printings(
 	id int auto_increment primary key,
     printing_name varchar(255) not null unique,
     price varchar(255) not null,
@@ -90,7 +88,7 @@ create table if not exists printings(
     foreign key (service_category_id) references service_category(id)
 );
 
-create table if not exists feedback(
+create feedback(
 	id int auto_increment primary key,
     feedback text not null,
     rating int not null,
@@ -100,7 +98,7 @@ create table if not exists feedback(
     foreign key (client_id) references client(id)   
 );
 
-create table if not exists cart(
+create cart(
 	id int auto_increment primary key,
     service_category_id int not null,
     service_id int not null,
@@ -111,14 +109,14 @@ create table if not exists cart(
     foreign key (client_id) references client(id)   
 );
 
-create table if not exists orders(
+create orders(
 	id int auto_increment primary key,
     client_id int not null,
 	created_at datetime default current_timestamp,
     foreign key (client_id) references client(id)   
 );
 
-create table if not exists order_details(
+create order_details(
 	id int auto_increment primary key,
     order_id int not null,
     service_category_id int not null,
@@ -138,7 +136,7 @@ create table if not exists order_details(
     foreign key (order_id) references orders(id)   
 );
 
-create table if not exists order_delivery_details(
+create order_delivery_details(
 	id int auto_increment primary key,
     order_id int not null,
     sender_phone_number varchar(30) not null,
@@ -152,7 +150,7 @@ create table if not exists order_delivery_details(
 );
 
 
-create table if not exists client_photos_for_orders(
+create client_photos_for_orders(
 	id int auto_increment primary key,
     order_details_id int not null,
     file_path varchar(255) not null,
@@ -161,7 +159,7 @@ create table if not exists client_photos_for_orders(
     foreign key (order_details_id) references order_details(id)
 );
 
-create table if not exists edited_photos(
+create edited_photos(
 	id int auto_increment primary key,
     order_details_id int not null,
     photo_path varchar(255) not null,
@@ -169,7 +167,7 @@ create table if not exists edited_photos(
     foreign key (order_details_id) references order_details(id)
 );
 
-create table if not exists payment_details(
+create payment_details(
 	id int auto_increment primary key,
     order_id int not null,
     client_id int not null,
@@ -182,7 +180,7 @@ create table if not exists payment_details(
     foreign key (order_id) references orders(id) 
 );
 
-create table if not exists invoice(
+create invoice(
 	id int auto_increment primary key,
     order_id int not null,
     file_path varchar(255) not null,
@@ -190,16 +188,6 @@ create table if not exists invoice(
     foreign key (order_id) references orders(id)
 );
 
-
-select * from client;
-select * from admin;
-select * from role;
-select * from service_category;
-select * from photoshoot;
-select * from frames;
-select * from frame_size;
-select * from service_category;
-select * from sample photos;
 
 
 

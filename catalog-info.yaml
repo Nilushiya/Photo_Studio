@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Photo_Studio
+  description: My sample backend service
+  tags:
+    - nodejs
+    - api
+  annotations:
+    github.com/project-slug: Nilushiya/Photo_Studio
+
+spec:
+  type: service
+  lifecycle: development
+  owner: user:guest
